@@ -49,5 +49,18 @@ import pandas as pd
 # print(recipes.year.isnull())
 # print(recipes.year.notnull())
 
-recipes=pd.read_csv("recipe.csv")
-recipes["topping"]="peperonni"
+# recipes=pd.read_csv("recipe.csv")
+# recipes["topping"]="peperonni"
+# print(recipes)
+
+# recipes=pd.read_csv("recipe.csv")
+# recipes["index_backwards"]=range(len(recipes.year),0,-1)
+# print(recipes)
+
+recipe=pd.read_csv("recipe.csv")
+# print(recipe.year.describe())
+# print(recipe.year.mean())
+# print(recipe.Small.unique())
+# print(recipe.Large.value_counts())
+recipe_mean=recipe.year.mean()
+print(recipe.year.map(lambda age:age-recipe_mean))
