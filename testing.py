@@ -24,5 +24,12 @@ import pandas as pd
 # recipes.index=[543543,54323542,5432542,5432542,7,67865,765432,545,4345,45,654,5654,5]    BTW doesn't work
 # print(recipes.iloc[-1,:])
 
+#Interesting side effect
+# recipes=pd.read_csv("recipe.csv", index_col=1)
+# recipes=recipes.set_index("year")
+# print(recipes)
+
+
 recipes=pd.read_csv("recipe.csv")
-recipes.loc[]
+newRecipes=recipes.set_index("year")
+print(newRecipes.loc[2020,["index","Small"]])
