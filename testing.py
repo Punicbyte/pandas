@@ -30,6 +30,24 @@ import pandas as pd
 # print(recipes)
 
 
+# recipes=pd.read_csv("recipe.csv")
+# newRecipes=recipes.set_index("year")
+# print(newRecipes.loc[2020:2023,["index","Small"]])
+
+# recipes=pd.read_csv("recipe.csv")
+# print(recipes.year==2025)
+
+# recipes=pd.read_csv("recipe.csv")
+# #recipes=recipes.set_index("year")
+# print(recipes.loc[(recipes.year<=2015) | (recipes.year>=2020)])
+#print(recipes.year==2020)    #So Panda library itself will go through and check. You don't have to loop and check when year == 2020
+
+# recipes=pd.read_csv("recipe.csv")
+# print(recipes.loc[recipes.year.isin([2015])])
+
+# recipes=pd.read_csv("recipe.csv")
+# print(recipes.year.isnull())
+# print(recipes.year.notnull())
+
 recipes=pd.read_csv("recipe.csv")
-newRecipes=recipes.set_index("year")
-print(newRecipes.loc[2020,["index","Small"]])
+recipes["topping"]="peperonni"
