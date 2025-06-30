@@ -57,10 +57,25 @@ import pandas as pd
 # recipes["index_backwards"]=range(len(recipes.year),0,-1)
 # print(recipes)
 
-recipe=pd.read_csv("recipe.csv")
+#recipe=pd.read_csv("recipe.csv")
 # print(recipe.year.describe())
 # print(recipe.year.mean())
-# print(recipe.Small.unique())
-# print(recipe.Large.value_counts())
-recipe_mean=recipe.year.mean()
-print(recipe.year.map(lambda age:age-recipe_mean))
+# # print(recipe.Small.unique())
+# # print(recipe.Large.value_counts())
+# recipe_mean=recipe.year.mean()
+# # print(recipe.year.map(lambda age:age-recipe_mean))
+# # print(recipe)
+# # print(recipe.year.apply(lambda age:age-recipe_mean,axis="columns"))
+# print(recipe.Small+" & "+recipe.Large)
+
+# def deviationYears(row):
+#     row.year=row.year-recipe_mean
+#     return row
+
+# print(recipe.apply(deviationYears,axis="columns"))
+#print(recipe.Small.describe())
+
+recipe=pd.read_csv("recipe.csv")
+# print(recipe.groupby("Small").mean())
+# print(recipe.apply(lambda x: x.mode().iloc[0], axis=0))
+# print(recipe.apply(lambda row:max(len(str(ind)) for ind in row), axis=1))
