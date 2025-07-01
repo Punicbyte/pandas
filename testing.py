@@ -75,7 +75,14 @@ import pandas as pd
 # print(recipe.apply(deviationYears,axis="columns"))
 #print(recipe.Small.describe())
 
+# recipe=pd.read_csv("recipe.csv")
+# # print(recipe.groupby("Small").mean())
+# # print(recipe.apply(lambda x: x.mode().iloc[0], axis=0))
+# # print(recipe.apply(lambda row:max(len(str(ind)) for ind in row), axis=1))
+# print(recipe.groupby("Small").apply(lambda big: big.Large.iloc[0]))
+
 recipe=pd.read_csv("recipe.csv")
-# print(recipe.groupby("Small").mean())
-# print(recipe.apply(lambda x: x.mode().iloc[0], axis=0))
-# print(recipe.apply(lambda row:max(len(str(ind)) for ind in row), axis=1))
+# recipe.year.astype("float64")
+# print(recipe[pd.isnull(recipe.year)])
+
+print(recipe.year.replace(2020,100000000))
