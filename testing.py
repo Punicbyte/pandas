@@ -85,4 +85,9 @@ recipe=pd.read_csv("recipe.csv")
 # recipe.year.astype("float64")
 # print(recipe[pd.isnull(recipe.year)])
 
-print(recipe.year.replace(2020,100000000))
+#print(recipe.year.replace(2020,100000000))
+# print(recipe[recipe.year.notnull()])
+print(recipe.groupby("Large").Large.count())
+print(recipe.groupby("Large").Small.count())
+
+
