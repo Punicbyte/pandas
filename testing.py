@@ -81,13 +81,31 @@ import pandas as pd
 # # print(recipe.apply(lambda row:max(len(str(ind)) for ind in row), axis=1))
 # print(recipe.groupby("Small").apply(lambda big: big.Large.iloc[0]))
 
+# recipe=pd.read_csv("recipe.csv")
+# # recipe.year.astype("float64")
+# # print(recipe[pd.isnull(recipe.year)])
+
+# #print(recipe.year.replace(2020,100000000))
+# # print(recipe[recipe.year.notnull()])
+# print(recipe.groupby("Large").Large.count())
+# print(recipe.groupby("Large").Small.count())
+
+# recipe=pd.read_csv("recipe.csv",index_col=1)
+# recipe.rename(columns={"year":"age"})
+# print(recipe)
+dragon = pd.DataFrame({"power_level": [12000, 16000, 4000, 1500, 3000, 
+                                     2000, 1600, 2000, 300],
+                     "uniform color": ["orange", "blue", "black", "orange",
+                                       "purple", "green", "orange", "orange","orange"],
+                     "species": ["saiyan","saiyan","saiyan","half saiyan",
+                                 "namak","human","human","human","human"]}, 
+                     index = ["Goku","Vegeta", "Nappa","Gohan",
+                                   "Piccolo","Tien","Yamcha", "Krillin","Roshi"])
+
+dragon=dragon.rename(index={"Goku":"Dragon Ball Z"})
+dragon=dragon.rename_axis("characters",axis="rows").rename_axis("attributes",axis="columns")
+# print(dragon)
 recipe=pd.read_csv("recipe.csv")
-# recipe.year.astype("float64")
-# print(recipe[pd.isnull(recipe.year)])
-
-#print(recipe.year.replace(2020,100000000))
-# print(recipe[recipe.year.notnull()])
-print(recipe.groupby("Large").Large.count())
-print(recipe.groupby("Large").Small.count())
-
-
+regular=pd.read_csv("regular.csv")
+# print(pd.concat([recipe,dragon]))
+recipe.join(regular, )
