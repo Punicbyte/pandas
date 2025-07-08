@@ -1,4 +1,6 @@
 import pandas as pd
+from random import random
+import seaborn as sns
 
 #df=pd.DataFrame({"Cool":["yes"],"Not cool":["NO"]},index=['bruh','notbruh'])
 #print(df)
@@ -107,12 +109,31 @@ import pandas as pd
 # # print(dragon)
 # recipe=pd.read_csv("recipe.csv")
 # regular=pd.read_csv("regular.csv")
-# # print(pd.concat([recipe,dragon]))
-# recipe.join(regular, )
+# # # print(pd.concat([recipe,dragon]))
+# # recipe.join(regular, )
 
-recipe=pd.read_csv("recipe.csv")
-# recipe.sort_values(by="year",inplace=True,ascending=False)
-# recipe.sort_index(inplace=True,ascending=False)
-# recipe.sort_values(by=["year","index"],inplace=True,ascending=False)
-recipe=recipe.groupby("Small")["Large"].value_counts()
-print(recipe)
+# recipe=pd.read_csv("recipe.csv",index_col=2)
+# # recipe.sort_values(by="year",inplace=True,ascending=False)
+# # recipe.sort_index(inplace=True,ascending=False)
+# # recipe.sort_values(by=["year","index"],inplace=True,ascending=False)
+# recipe=recipe.groupby("Small")["Large"].min()
+# print(recipe.index)
+
+# win_count=0
+# iteration_count=10000
+# for iteration in range(iteration_count):
+#     chips=2000
+#     total_bet=0
+#     while chips>0 and total_bet<10000:
+#         bet=1
+#         total_bet+=bet
+#         if random() <0.4:
+#             chips+=1
+#         else:
+#             chips-=1
+#     if total_bet>=10000:
+#         win_count+=1
+
+# print(f"Chance of this working: ",round((win_count/iteration_count)*100,2),"%",sep="")
+recipe=pd.read_csv("recipe.csv",index_col=2)
+print(sns.heatmap(recipe))
